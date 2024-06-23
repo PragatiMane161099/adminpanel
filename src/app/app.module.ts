@@ -11,6 +11,8 @@ import { CategoryListComponent } from './category/category-list/category-list.co
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
 import { BrandAddComponent } from './brand/brand-add/brand-add.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { UserListComponent } from './user/user-list/user-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
