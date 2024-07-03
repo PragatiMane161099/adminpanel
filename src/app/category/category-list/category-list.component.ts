@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CategoryService } from '../category.service';
 import { category } from './../response.interface';
 import { Component } from '@angular/core';
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
 export class CategoryListComponent {
   categories: category[] = [];
   
-  constructor(private service: CategoryService) {}
+  constructor(private Router: Router, private service: CategoryService) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -24,6 +25,10 @@ export class CategoryListComponent {
         alert(response.error);
       }
     });
+  }
+  onAdd()
+  {
+     this.Router.navigate(['/category-add'])
   }
 }
 

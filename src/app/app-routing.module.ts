@@ -8,16 +8,18 @@ import { CategoryListComponent } from './category/category-list/category-list.co
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
 import { BrandAddComponent } from './brand/brand-add/brand-add.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { AdminService } from './admins/admin.service';
 
 const routes: Routes = [
   {path:'signin', component: SigninComponent},
-  {path:'product-list', component: ProductListComponent},
-  {path:'product-add', component: ProductAddComponent},
-  {path:'category-add', component: CategoryAddComponent},
-  {path:'category-list', component: CategoryListComponent},
-  {path:'brand-list', component: BrandListComponent},
-  {path:'brand-add', component: BrandAddComponent},
-  {path:'user-list', component: UserListComponent}
+
+  {path:'product-list', component: ProductListComponent, canActivate:[AdminService]},
+  {path:'product-add', component: ProductAddComponent, canActivate:[AdminService]},
+  {path:'category-add', component: CategoryAddComponent, canActivate:[AdminService]},
+  {path:'category-list', component: CategoryListComponent, canActivate:[AdminService]},
+  {path:'brand-list', component: BrandListComponent, canActivate:[AdminService]},
+  {path:'brand-add', component: BrandAddComponent, canActivate:[AdminService]},
+  {path:'user-list', component: UserListComponent, canActivate:[AdminService]}
 ];
 
 @NgModule({ 

@@ -12,6 +12,8 @@ export class AppComponent {
   }
   onLogout()
   {
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('user_name')
      this.router.navigate(['/signin'])
   }
 }

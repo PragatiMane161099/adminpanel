@@ -12,6 +12,20 @@ export class CategoryService {
 
   constructor(private http: HttpClient) {}
 
+  addCaregory(title: string, description:string){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'token': sessionStorage['token']
+      })
+    };
+    const body = {
+      title: title,
+      description: description
+    }
+    return this.http.post<CategoryListResponse>(this.url, body, httpOptions);
+  }
+
   getCategories(): Observable<CategoryListResponse> {
     const httpOptions = {
       headers: new HttpHeaders({
